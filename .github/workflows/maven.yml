@@ -25,15 +25,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Execute Tests
-      run: |
-        mkdir -p logs
-        mvn clean test -Dsuite=suite -X > logs/maven.log 2>&1
+      run:  mvn clean test -Dsuite=suite -X
 
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v6.0.0
       with:
         name: Logs
-        path: logs/
+        path: logs
     
 
